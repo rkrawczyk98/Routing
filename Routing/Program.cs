@@ -22,13 +22,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.Map("products", async (context)=>
-    {
-        await context.Response.WriteAsync("In products");
-    });
-});
+app.UseEndpoints(endpoints =>{});
 
 app.MapControllerRoute(
     name: "default",
