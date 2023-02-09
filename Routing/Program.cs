@@ -1,3 +1,5 @@
+using Routing.Controllers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,8 +22,16 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.Map("products", async (context)=>
+    {
+        await context.Response.WriteAsync("In products");
+    });
+});
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=ProductsController}/{action=List}");
+    pattern: "{controller=HomeController}/{action=Index}");
 
 app.Run();

@@ -9,11 +9,13 @@ namespace Routing.Controllers
             return View();
         }
 
+        [Route("products/list")]
         public IActionResult List()
         {
             return View();
         }
 
+        [Route("products/details/")]
         public IActionResult Details(int id)
         {
             return View();
